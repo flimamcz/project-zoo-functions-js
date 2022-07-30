@@ -23,22 +23,4 @@ function countAnimals(animal) {
   return getAnimalBySexeName;
 }
 
-console.log(countAnimals({ specie: 'bears', sex: 'female' }));
-
 module.exports = countAnimals;
-
-// const count = species.map((element) => (
-//   Object.keys(element.residents).length));
-// if (animal === undefined) {
-//   return {
-//     lions: count[0],
-//     tigers: count[1],
-//     bears: count[2],
-//     penguins: count[3],
-//     otters: count[4],
-//     frogs: count[5],
-//     snakes: count[6],
-//     elephants: count[7],
-//     giraffes: count[8],
-//   };
-// }
