@@ -15,7 +15,7 @@ describe('Testes da função getOpeningHours', () => {
     expect(getOpeningHours()).toEqual(daysAndHours);
   });
 
-  it('Verifica se ao passar dia e hora correta a função `openOrClosed` retorna true', () => {
+  it('Verifica se ao passar não passar os parâmetros para função `openOrClosed` retorna false', () => {
     expect(openOrClosed()).toBeFalsy();
   });
 
@@ -57,7 +57,7 @@ describe('Testes da função getOpeningHours', () => {
     }).toThrowError('The day must be valid. Example: Monday');
   });
 
-  it('Verifica se é uma função', () => {
+  it('Verifica se `openOrClosed` é uma função', () => {
     expect(typeof openOrClosed).toEqual('function');
   });
 });
