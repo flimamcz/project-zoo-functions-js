@@ -1,4 +1,4 @@
-const { getOpeningHours, openOrClosed } = require('../src/getOpeningHours');
+const { getOpeningHours} = require('../src/getOpeningHours');
 
 describe('Testes da função getOpeningHours', () => {
   it('Verifica se ao não passar nenhum parâmetro retorna um objeto com todos os dias e horários', () => {
@@ -15,12 +15,12 @@ describe('Testes da função getOpeningHours', () => {
     expect(getOpeningHours()).toEqual(daysAndHours);
   });
 
-  it('Verifica se ao passar não passar os parâmetros para função `openOrClosed` retorna false', () => {
-    expect(openOrClosed()).toBeFalsy();
-  });
-
   it('Verifica se ao passar um dia `Monday` e um horário (`08:30-AM`), retorna: The zoo is closed', () => {
     expect(getOpeningHours('Monday', '08:30-AM')).toEqual('The zoo is closed');
+  });
+
+  it('Verifica se ao passar um dia `Tuesday` e um horário (`08:30-AM`), retorna: The zoo is open', () => {
+    expect(getOpeningHours('Tuesday', '08:30-AM')).toEqual('The zoo is open');
   });
 
   it('Verifica se getOpeningHours é uma função', () => {
@@ -55,9 +55,5 @@ describe('Testes da função getOpeningHours', () => {
     expect(() => {
       getOpeningHours('qualquercoisa', '14:10-AM');
     }).toThrowError('The day must be valid. Example: Monday');
-  });
-
-  it('Verifica se `openOrClosed` é uma função', () => {
-    expect(typeof openOrClosed).toEqual('function');
   });
 });
