@@ -1,4 +1,4 @@
-const { getOpeningHours} = require('../src/getOpeningHours');
+const { getOpeningHours } = require('../src/getOpeningHours');
 
 describe('Testes da função getOpeningHours', () => {
   it('Verifica se ao não passar nenhum parâmetro retorna um objeto com todos os dias e horários', () => {
