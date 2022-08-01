@@ -64,4 +64,4 @@ const getOpeningHours = (day, dataHour) => {
   return message;
 };
 
-module.exports = { getOpeningHours, openOrClosed };
+module.exports = { getOpeningHours };
