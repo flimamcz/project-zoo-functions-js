@@ -27,4 +27,8 @@ describe('Testes da função HandlerElephants', () => {
   it('Verifica se ao passar o parâmetro que for uma string mas não uma função do switch, retorna null', () => {
     expect(handlerElephants('232323')).toBeNull();
   });
+
+  it('Verifica se ao passar o parâmentro `name` retornar `elephants` ', () => {
+    expect(handlerElephants('name')).toEqual('elephants');
+  });
 });

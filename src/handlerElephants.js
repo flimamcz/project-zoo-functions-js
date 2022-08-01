@@ -28,10 +28,12 @@ const handlerElephants = (param) => {
     return 'Parâmetro inválido, é necessário uma string';
   }
   const elephants = getElephants();
+  console.log(elephants[param]);
   if (Object.keys(elephants).includes(param)) {
     return elephants[param];
   }
   return computeData(param, elephants);
 };
+handlerElephants('name');
 
 module.exports = handlerElephants;
