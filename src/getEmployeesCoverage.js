@@ -12,7 +12,7 @@ function getEmployeeByNameOrId({ name, id }) {
   return getEmployee;
 }
 
-function getAnimalsById(arrayId) {
+function getAnimalsAndLocation(arrayId) {
   const getAnimals = species.filter((specie) => (
     arrayId.find((id) => id === specie.id)));
   const getSpecieNameAnimal = getAnimals.map((animal) => animal.name);
@@ -38,21 +38,10 @@ function verifyExistPersonEmployee({ name, id }) {
   return verify;
 }
 
-function allAnimalsAndLocation(arrayId) {
-  const getAnimals = species.filter((specie) =>
-    arrayId.find((id) => id === specie.id));
-  const getSpecieNameAnimal = getAnimals.map((animal) => animal.name);
-  const getLocationsAnimal = getAnimals.map((animal) => animal.location);
-  return {
-    getLocationsAnimal,
-    getSpecieNameAnimal,
-  };
-}
-
 function getAllEmployee() {
   const employeePerson = employees.map((employee) => {
     const { id, firstName, lastName, responsibleFor } = employee;
-    const { getSpecieNameAnimal, getLocationsAnimal } = allAnimalsAndLocation(responsibleFor);
+    const { getSpecieNameAnimal, getLocationsAnimal } = getAnimalsAndLocation(responsibleFor);
     return {
       id,
       fullName: `${firstName} ${lastName}`,
@@ -74,7 +63,7 @@ function getEmployeesCoverage(identify) {
     const personEmployee = getEmployeeByNameOrId(identify);
     const [{ id, firstName, lastName }] = personEmployee;
     const [{ responsibleFor }] = personEmployee;
-    const { getLocationsAnimal, getSpecieNameAnimal } = getAnimalsById(responsibleFor);
+    const { getLocationsAnimal, getSpecieNameAnimal } = getAnimalsAndLocation(responsibleFor);
     const inforPersonEmployee = {
       id,
       fullName: `${firstName} ${lastName}`,
@@ -84,5 +73,6 @@ function getEmployeesCoverage(identify) {
     return inforPersonEmployee;
   }
 }
+console.log(getEmployeesCoverage());
 
 module.exports = getEmployeesCoverage;
